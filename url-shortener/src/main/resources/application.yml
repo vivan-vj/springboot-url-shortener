@@ -2,11 +2,8 @@ spring.application.name: url-shortener
 
 
 server:
-  port: 8090
+  port: 9090
 
 
-jwt:
-  secret: "asdfghjklqwertyuiopzxcvbnm123456"
-  expiration: 3600000  # 1 hour in milliseconds
-  refresh-expiration: 86400000  # 24 hours in milliseconds
+
 
