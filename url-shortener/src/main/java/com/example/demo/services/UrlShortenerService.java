@@ -15,7 +15,7 @@ public class UrlShortenerService {
     public String shorten(String longUrl) {
         String shortCode = generateCode();
         urlMap.put(shortCode, longUrl);
-        return "http://localhost:9090/" + shortCode;
+        return "http://localhost:9090/service/" + shortCode;
     }
 
     public String getLongUrl(String shortCode) {

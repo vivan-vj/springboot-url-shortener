@@ -8,24 +8,25 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 
 @RestController
+@RequestMapping("/service")
 public class UrlShortenerController {
 
-    private final UrlShortenerService service;
+    private final UrlShortenerService urlShortenerService;
 
     public UrlShortenerController(UrlShortenerService service) {
-        this.service = service;
+        this.urlShortenerService = service;
     }
 
     @PostMapping("/shorten")
     public String shortenUrl(@RequestParam String longUrl) {
-        return service.shorten(longUrl);
+        return urlShortenerService.shorten(longUrl);
     }
 
     @GetMapping("/{shortCode}")
     public ResponseEntity<Void> redirect(@PathVariable String shortCode) {
-        String longUrl = service.getLongUrl(shortCode);
+        String longUrl = urlShortenerService.getLongUrl(shortCode);
         return ResponseEntity.status(HttpStatus.FOUND)
-                             .location(URI.create(longUrl))
-                             .build();
+                .location(URI.create(longUrl))
+                .build();
     }
 }
