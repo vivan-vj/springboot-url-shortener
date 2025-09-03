@@ -5,10 +5,16 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * The type Url shortener service test.
+ */
 class UrlShortenerServiceTest {
 
     private final UrlShortenerService urlShortenerService = new UrlShortenerService();
 
+    /**
+     * Shorten generates valid short url.
+     */
     @Test
     void shortenGeneratesValidShortUrl() {
         String longUrl = "http://example.com";
@@ -18,6 +24,9 @@ class UrlShortenerServiceTest {
         assertEquals(longUrl, urlShortenerService.getLongUrl(shortUrl.substring(shortUrl.lastIndexOf("/") + 1)));
     }
 
+    /**
+     * Gets long url returns empty string for invalid short code.
+     */
     @Test
     void getLongUrlReturnsEmptyStringForInvalidShortCode() {
         String result = urlShortenerService.getLongUrl("invalidCode");
@@ -25,6 +34,9 @@ class UrlShortenerServiceTest {
         assertEquals("", result);
     }
 
+    /**
+     * Shorten generates unique codes for different urls.
+     */
     @Test
     void shortenGeneratesUniqueCodesForDifferentUrls() {
         String longUrl1 = "http://example1.com";

@@ -11,11 +11,17 @@ import java.net.URI;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
+/**
+ * The type Url shortener controller test.
+ */
 class UrlShortenerControllerTest {
 
     private final UrlShortenerService urlShortenerService = Mockito.mock(UrlShortenerService.class);
     private final UrlShortenerController urlShortenerController = new UrlShortenerController(urlShortenerService);
 
+    /**
+     * Shorten url returns shortened url.
+     */
     @Test
     void shortenUrlReturnsShortenedUrl() {
         String longUrl = "http://example.com";
@@ -27,6 +33,9 @@ class UrlShortenerControllerTest {
         assertEquals(shortUrl, result);
     }
 
+    /**
+     * Redirect returns found status with correct location.
+     */
     @Test
     void redirectReturnsFoundStatusWithCorrectLocation() {
         String shortCode = "abc123";
@@ -38,6 +47,9 @@ class UrlShortenerControllerTest {
         assertEquals(URI.create(longUrl), response.getHeaders().getLocation());
     }
 
+    /**
+     * Redirect returns not found for invalid short code.
+     */
     @Test
     void redirectReturnsNotFoundForInvalidShortCode() {
         String shortCode = "invalid";

@@ -7,21 +7,42 @@ import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
 
+/**
+ * The type Url shortener controller.
+ * @Author Vivek Jadhav
+ */
 @RestController
 @RequestMapping("/service")
 public class UrlShortenerController {
 
     private final UrlShortenerService urlShortenerService;
 
+    /**
+     * Instantiates a new Url shortener controller.
+     *
+     * @param service the service
+     */
     public UrlShortenerController(UrlShortenerService service) {
         this.urlShortenerService = service;
     }
 
+    /**
+     * Shorten url string.
+     *
+     * @param longUrl the long url
+     * @return the string
+     */
     @PostMapping("/shorten")
     public String shortenUrl(@RequestParam String longUrl) {
         return urlShortenerService.shorten(longUrl);
     }
 
+    /**
+     * Redirect response entity.
+     *
+     * @param shortCode the short code
+     * @return the response entity
+     */
     @GetMapping("/{shortCode}")
     public ResponseEntity<Void> redirect(@PathVariable String shortCode) {
         String longUrl = urlShortenerService.getLongUrl(shortCode);

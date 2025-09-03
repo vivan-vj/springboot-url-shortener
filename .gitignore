@@ -41,3 +41,4 @@ replay_pid*
 /url-shortener/target/surefire-reports/com.example.demo.controllers.TestControllerTest.txt
 /url-shortener/target/surefire-reports/com.example.demo.controllers.UrlShortenerControllerTest.txt
 /url-shortener/target/surefire-reports/com.example.demo.services.UrlShortenerServiceTest.txt
+/url-shortener/.idea/intellij-javadocs-4.0.1.xml
