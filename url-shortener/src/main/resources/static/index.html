@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener</title>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 40px;
+          background-color: #f4f4f4;
+        }
+        h2 {
+          color: #333;
+        }
+        input[type="text"] {
+          width: 400px;
+          padding: 8px;
+          margin-right: 10px;
+        }
+        button {
+          padding: 8px 12px;
+          cursor: pointer;
+        }
+        #result {
+          margin-top: 20px;
+          display: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🔗 URL Shortener</h2>
+<br/>
+<form id="shortenForm">
+    <input type="text" id="longUrl" placeholder="Paste your long HTTPS URL here" required/>
+    <button type="submit">Shorten</button>&nbsp;&nbsp;
+    <button type="button" onclick="clearForm()">Clear</button>
+</form>
+
+<div id="result">
+    <h3>🔗 Short URL</h3>
+    <input type="text" id="shortUrl" readonly/>
+    <button onclick="copyToClipboard()" title="Copy to clipboard">copy 📋</button>
+</div>
+
+<script>
+    console.log("Page loaded");
+
+    document.getElementById("shortenForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      console.log("Form submitted");
+
+      const longUrl = document.getElementById("longUrl").value;
+      console.log("Long URL:", longUrl);
+
+      fetch("/service/shorten", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: "longUrl=" + encodeURIComponent(longUrl)
+      })
+      .then(response => response.text())
+      .then(shortUrl => {
+        console.log("Short URL received:", shortUrl);
+        document.getElementById("shortUrl").value = shortUrl;
+        document.getElementById("result").style.display = "block";
+      })
+      .catch(err => {
+        console.error("Fetch error:", err);
+        alert("Error: " + err);
+      });
+    });
+
+    function copyToClipboard() {
+      const input = document.getElementById("shortUrl");
+      input.select();
+      input.setSelectionRange(0, 99999); // For mobile
+      navigator.clipboard.writeText(input.value)
+        .then(() => alert("Copied to clipboard!"))
+        .catch(err => alert("Failed to copy: " + err));
+    }
+
+   function clearForm() {
+     document.getElementById("longUrl").value = "";
+     document.getElementById("shortUrl").value = "";
+     document.getElementById("result").style.display = "none";
+   }
+</script>
+
+</body>
+</html>

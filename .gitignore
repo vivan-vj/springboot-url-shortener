@@ -22,3 +22,23 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+/url-shortener/target/classes
+/url-shortener/target/classes
+/url-shortener/target/maven-archiver/pom.properties
+/url-shortener/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+/url-shortener/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+/url-shortener/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+/url-shortener/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+/url-shortener/target/surefire-reports/TEST-com.example.demo.DemoApplicationTests.xml
+/url-shortener/target/surefire-reports/com.example.demo.DemoApplicationTests.txt
+/url-shortener/target/url-shortener-0.0.1-SNAPSHOT.jar.original
+/url-shortener/target/classes
+/url-shortener/target/surefire-reports/TEST-com.example.demo.DemoApplicationTest.xml
+/url-shortener/target/surefire-reports/TEST-com.example.demo.controllers.TestControllerTest.xml
+/url-shortener/target/surefire-reports/TEST-com.example.demo.controllers.UrlShortenerControllerTest.xml
+/url-shortener/target/surefire-reports/TEST-com.example.demo.services.UrlShortenerServiceTest.xml
+/url-shortener/target/surefire-reports/com.example.demo.DemoApplicationTest.txt
+/url-shortener/target/surefire-reports/com.example.demo.controllers.TestControllerTest.txt
+/url-shortener/target/surefire-reports/com.example.demo.controllers.UrlShortenerControllerTest.txt
+/url-shortener/target/surefire-reports/com.example.demo.services.UrlShortenerServiceTest.txt
+/url-shortener/.idea/intellij-javadocs-4.0.1.xml
