@@ -26,6 +26,7 @@ A simple URL shortener service built with Spring Boot, Java 22, and Maven.
 1. Clone the repository
 2. Build the project (mvn clean install)
 3. Run the application (java -jar target/url-shortener-0.0.1-SNAPSHOT.jar)
+4. Goto http://localhost:9090/ 
 
 The service will start on port `9090` (see `src/main/resources/application.yml`).
 
